@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .list {
+        background: #4286f4;
+        width: 500px;
+        padding: 1rem;
+      }
+
+      .active.list-item {
+        background-color: #ff6f00;
+      }
+
+      .list-item {
+        list-style-type: none;
+        background: #8bb3f4;
+        border: 1px solid #fff;
+        margin: 1px 0;
+        padding: 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <ul id="sortable-list" class="list">
+      <li class="active list-item" draggable="true">Nhập môn lập trình web</li>
+      <li class="list-item" draggable="true">Giới thiệu Khóa học HTML-CSS</li>
+      <li class="list-item" draggable="true">
+        Nhập môn lập trình web - Phần 1
+      </li>
+      <li class="list-item" draggable="true">
+        Nhập môn lập trình web - Phần 2
+      </li>
+      <li class="list-item" draggable="true">
+        Công cụ - Phần mềm cần chuẩn bị
+      </li>
+      <li class="active list-item" draggable="true">Ngôn ngữ HTML</li>
+      <li class="list-item" draggable="true">HTML cơ bản - Phần 1</li>
+      <li class="list-item" draggable="true">HTML cơ bản - Phần 2</li>
+      <li class="active list-item" draggable="true">Ngôn ngữ CSS</li>
+      <li class="list-item" draggable="true">
+        Giới thiệu ngôn ngữ CSS - Cách viết CSS
+      </li>
+      <li class="list-item" draggable="true">
+        Cấu trúc CSS - Bộ chọn (Selector) trong CSS - Phần 1
+      </li>
+      <li class="list-item" draggable="true">
+        Bộ chọn CSS (Tiếp theo) - Các thuộc tính định dạng văn bản
+      </li>
+      <li class="list-item" draggable="true">
+        Chồng chéo CSS và thứ tự ưu tiên trong CSS
+      </li>
+      <li class="list-item" draggable="true">Thuộc tính Background</li>
+      <li class="list-item" draggable="true">Thuộc tính Border</li>
+      <li class="list-item" draggable="true">Thuộc tính Width - Height</li>
+      <li class="list-item" draggable="true">Thuộc tính text-align</li>
+      <li class="list-item" draggable="true">Thuộc tính overflow</li>
+      <li class="list-item" draggable="true">Thuộc tính opacity</li>
+      <li class="list-item" draggable="true">Thuộc tính Padding - Margin</li>
+      <li class="list-item" draggable="true">
+        Reset CSS - Tại sao Reset CSS lại quan trọng?
+      </li>
+      <li class="list-item" draggable="true">Thuộc tính Float trong CSS</li>
+      <li class="list-item" draggable="true">
+        Thuộc tính clear - Kỹ thuật clearfix
+      </li>
+      <li class="list-item" draggable="true">Thuộc tính Display</li>
+      <li class="list-item" draggable="true">Thuộc tính Position trong CSS</li>
+      <li class="list-item" draggable="true">
+        Định dạng danh sách (List Style) trong CSS
+      </li>
+      <li class="list-item" draggable="true">
+        Xử lý tự động thu hẹp lề khi sử dụng Margin
+      </li>
+      <li class="list-item" draggable="true">
+        Hướng dẫn kỹ thuật CSS Sprites chi tiết
+      </li>
+      <li class="list-item" draggable="true">
+        Nguyên tắc kế thừa class - id trong CSS
+      </li>
+      <li class="list-item" draggable="true">
+        Hướng dẫn sử dụng BEM để đặt tên Class
+      </li>
+      <li class="list-item" draggable="true">
+        Làm việc với thành phần giả (Pseudo Elements) before - after
+      </li>
+      <li class="list-item" draggable="true">
+        Làm việc với thành phần giả (Pseudo Elements) khác
+      </li>
+      <li class="list-item" draggable="true">
+        Làm việc với lớp giả (Pseudo Classes) - Phần 1
+      </li>
+      <li class="list-item" draggable="true">
+        Làm việc với lớp giả (Pseudo Classes) - Phần 2
+      </li>
+      <li class="list-item" draggable="true">
+        Làm việc với lớp giả (Pseudo Classes) - Phần 3
+      </li>
+      <li class="list-item" draggable="true">
+        Tích hợp font-awesome và kỹ thuật liên quan
+      </li>
+      <li class="list-item" draggable="true">
+        Hướng dẫn sử dụng biến (Variable) trong CSS
+      </li>
+      <li class="list-item" draggable="true">
+        Thực hành xây dựng menu đa cấp sử dụng HTML - CSS
+      </li>
+      <li class="list-item" draggable="true">Tạo bộ đếm (Counter) trong CSS</li>
+      <li class="list-item" draggable="true">
+        Tính toán kích thước bằng hàm calc()
+      </li>
+      <li class="list-item" draggable="true">
+        Đổ bóng khối và văn bản trong CSS
+      </li>
+      <li class="list-item" draggable="true">
+        CSS Prefixer là gì? Hướng dẫn thêm CSS Prefixer
+      </li>
+      <li class="list-item" draggable="true">
+        Thuộc tính transition trong CSS3
+      </li>
+      <li class="list-item" draggable="true">
+        Thực hành tạo hiệu ứng với transition - Phần 1
+      </li>
+      <li class="list-item" draggable="true">
+        Thực hành tạo hiệu ứng với transition - Phần 2
+      </li>
+      <li class="list-item" draggable="true">
+        Thực hành tạo hiệu ứng với transition - Phần 3
+      </li>
+      <li class="list-item" draggable="true">
+        Thuộc tính transform trong CSS3 - Phần 1
+      </li>
+      <li class="list-item" draggable="true">
+        Thuộc tính transform trong CSS3 - Phần 2
+      </li>
+      <li class="list-item" draggable="true">
+        Thuộc tính transform trong CSS3 - Phần 3
+      </li>
+      <li class="list-item" draggable="true">Background Gradient trong CSS3</li>
+      <li class="list-item" draggable="true">
+        Kỹ thuật làm việc với flexbox - Phần 1
+      </li>
+      <li class="list-item" draggable="true">
+        Kỹ thuật làm việc với flexbox - Phần 2
+      </li>
+      <li class="list-item" draggable="true">
+        Kỹ thuật làm việc với flexbox - Phần 3
+      </li>
+      <li class="list-item" draggable="true">Thực hành với flexbox - Phần 1</li>
+      <li class="list-item" draggable="true">Thực hành với flexbox - Phần 2</li>
+      <li class="list-item" draggable="true">
+        Kỹ thuật dựng layout với Grid CSS3
+      </li>
+      <li class="list-item" draggable="true">
+        Tạo hiệu ứng với Animate trong CSS3
+      </li>
+      <li class="list-item" draggable="true">
+        Thực hành tạo hiệu ứng với Animation trong CSS3 - Phần 1
+      </li>
+      <li class="list-item" draggable="true">
+        Thực hành tạo hiệu ứng với Animation trong CSS3 - Phần 2
+      </li>
+      <li class="list-item" draggable="true">
+        Tích hợp và sử dụng thư viện animate.css để tạo hiệu ứng
+      </li>
+      <li class="list-item" draggable="true">
+        Tự xây dựng Grid System để dựng layout với CSS - Phần 1
+      </li>
+      <li class="list-item" draggable="true">
+        Tự xây dựng Grid System để dựng layout với CSS - Phần 2
+      </li>
+      <li class="active list-item" draggable="true">Responsive Web Design</li>
+      <li class="list-item" draggable="true">
+        Tổng quan về Responsive Web Design
+      </li>
+      <li class="list-item" draggable="true">
+        Hướng dẫn code Media Queries CSS3
+      </li>
+      <li class="list-item" draggable="true">
+        Tối ưu Responsive Grid System - Phần 1
+      </li>
+      <li class="list-item" draggable="true">
+        Tối ưu Responsive Grid System - Phần 2
+      </li>
+      <li class="list-item" draggable="true">
+        Xây dựng menu responsive chỉ với CSS
+      </li>
+      <li class="active list-item" draggable="true">
+        Xây dựng dự án Nature từ A - Z
+      </li>
+      <li class="list-item" draggable="true">
+        Tổng quan và hướng dẫn xây dựng dự án
+      </li>
+      <li class="list-item" draggable="true">
+        Phân tích và tạo cấu trúc files, folder
+      </li>
+      <li class="list-item" draggable="true">
+        Cài đặt công cụ - Thiết lập load file header - footer
+      </li>
+      <li class="list-item" draggable="true">
+        Thiết lập định dạng chung cho file reset.css - base.css
+      </li>
+      <li class="list-item" draggable="true">Xây dựng Header - Phần 1</li>
+      <li class="list-item" draggable="true">Xây dựng Header - Phần 2</li>
+      <li class="list-item" draggable="true">Xây dựng Header - Phần 3</li>
+      <li class="list-item" draggable="true">HomePage - Xây dựng Slider</li>
+      <li class="list-item" draggable="true">
+        HomePage - Xây dựng Service Section
+      </li>
+      <li class="list-item" draggable="true">
+        HomePage - Xây dựng Gallery Ảnh
+      </li>
+      <li class="list-item" draggable="true">
+        HomePage - Xây dựng Product Box - Phần 1
+      </li>
+      <li class="list-item" draggable="true">
+        HomePage - Xây dựng Product Box - Phần 2
+      </li>
+      <li class="list-item" draggable="true">
+        HomePage - Xây dựng Product Box - Phần 3
+      </li>
+      <li class="list-item" draggable="true">
+        HomePage - Xây dựng Product Box - Phần 4
+      </li>
+      <li class="list-item" draggable="true">
+        HomePage - Xây dựng Testimonials Box
+      </li>
+      <li class="list-item" draggable="true">
+        HomePage - Xây dựng Support Box
+      </li>
+      <li class="list-item" draggable="true">HomePage - Xây dựng News Box</li>
+      <li class="list-item" draggable="true">HomePage - Xây dựng Brand Box</li>
+      <li class="list-item" draggable="true">Xây dựng Footer - Phần 1</li>
+      <li class="list-item" draggable="true">Xây dựng Footer - Phần 2</li>
+      <li class="list-item" draggable="true">
+        Xây dựng nút Back To Top Animate
+      </li>
+      <li class="list-item" draggable="true">
+        HomePage - Tối ưu Responsive - Phần 1
+      </li>
+      <li class="list-item" draggable="true">
+        HomePage - Tối ưu Responsive - Phần 2
+      </li>
+      <li class="list-item" draggable="true">
+        HomePage - Tối ưu Responsive - Phần 3
+      </li>
+      <li class="list-item" draggable="true">
+        Category Page - Xây dựng Breadcrumbs
+      </li>
+      <li class="list-item" draggable="true">
+        Category Page - Xây dựng Sidebar - Phần 1
+      </li>
+      <li class="list-item" draggable="true">
+        Category Page - Xây dựng Sidebar - Phần 2
+      </li>
+      <li class="list-item" draggable="true">
+        Category Page - Xây dựng Sidebar - Phần 3
+      </li>
+      <li class="list-item" draggable="true">
+        Category Page - Xây dựng Product Filters
+      </li>
+      <li class="list-item" draggable="true">
+        Category Page - Xây dựng Product Box và Phân trang
+      </li>
+      <li class="list-item" draggable="true">
+        Category Page - Tối ưu Responsive
+      </li>
+      <li class="list-item" draggable="true">Product Detail Page - Phần 1</li>
+      <li class="list-item" draggable="true">Product Detail Page - Phần 2</li>
+      <li class="list-item" draggable="true">Product Detail Page - Phần 3</li>
+      <li class="list-item" draggable="true">Product Detail Page - Phần 4</li>
+      <li class="list-item" draggable="true">Product Detail Page - Phần 5</li>
+      <li class="list-item" draggable="true">Product Detail Page - Phần 6</li>
+      <li class="list-item" draggable="true">
+        Product Detail Page - Tối ưu Responsive
+      </li>
+      <li class="list-item" draggable="true">
+        Tối ưu và hoàn thiện dự án Nature
+      </li>
+      <li class="list-item" draggable="true">
+        Thử thách - Hiểu rõ hơn công việc cắt PSD sang HTML-CSS
+      </li>
+      <li class="active list-item" draggable="true">
+        Deployment Github - Server
+      </li>
+      <li class="list-item" draggable="true">Tổng quan về GIT - GitHub</li>
+      <li class="list-item" draggable="true">
+        Hướng dẫn đăng ký tài khoản GitHub
+      </li>
+      <li class="list-item" draggable="true">
+        Tạo Repository và Push code lên GitHub
+      </li>
+      <li class="list-item" draggable="true">
+        Tạo GitHub Pages và xuất bản website
+      </li>
+      <li class="list-item" draggable="true">Cập nhật chỉnh sửa lên GitHub</li>
+      <li class="list-item" draggable="true">
+        Thêm tên miền riêng cho GitHub Pages
+      </li>
+      <li class="list-item" draggable="true">
+        Trỏ tên miền qua Cloudflare và kích hoạt HTTPS
+      </li>
+      <li class="list-item" draggable="true">Thêm Favicon cho website</li>
+    </ul>
+    <script src="script.js"></script>
+  </body>
+</html>
