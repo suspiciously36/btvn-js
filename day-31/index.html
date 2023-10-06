@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lấy link F-share</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      html {
+        font-family: sans-serif;
+      }
+      .timer {
+        background-image: linear-gradient(
+          to right,
+          red,
+          orange,
+          yellow,
+          green,
+          blue,
+          indigo,
+          violet
+        );
+        height: 100vh;
+      }
+      .timer h2 {
+        color: #fff;
+        font-size: 44px;
+        text-align: center;
+        padding-top: 250px;
+        padding-bottom: 50px;
+      }
+      .counter {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        line-height: 50px;
+        font-size: 28px;
+        color: #fff;
+        background: orange;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        margin-bottom: 25px;
+      }
+      .btn {
+        display: block;
+        margin: auto;
+        border: 1px solid #fff;
+        width: 100px;
+        border-radius: 99px;
+        height: 35px;
+        font-size: 18px;
+        font-weight: 600;
+      }
+      .pointer {
+        cursor: pointer;
+      }
+      .btn:disabled:hover {
+        cursor: not-allowed;
+        opacity: 1;
+      }
+      .btn:hover {
+        opacity: 0.8;
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>Allow JS to run this page, thank you!</noscript>
+    <div id="root">
+      <div class="timer">
+        <h2>Go to destination page</h2>
+        <span class="counter"></span>
+        <button class="btn" disabled>Get rekt</button>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
