@@ -1,0 +1,78 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+  background-color: #ccc;
+}
+
+h1 {
+  text-align: center;
+  margin: 100px auto;
+}
+
+.btn {
+  display: flex;
+  color: #000;
+  font-size: 20px;
+  font-weight: bold;
+  border: 1px solid green;
+  border-radius: 99px;
+  background-image: linear-gradient(
+    to right,
+    red,
+    orange,
+    yellow,
+    green,
+    blue,
+    indigo,
+    violet
+  );
+  padding: 24px;
+  outline: none;
+  margin: 24px auto;
+}
+
+.btn:hover {
+  background-image: linear-gradient(
+    to left,
+    red,
+    orange,
+    yellow,
+    green,
+    blue,
+    indigo,
+    violet
+  );
+  cursor: pointer;
+}
+
+div .output,
+div .output_hope,
+div .output_show {
+  text-align: center;
+  margin-top: 32px;
+}
+
+div .output_hope {
+  font-size: 24px;
+  color: blue;
+}
+
+div .output_show {
+  border: 3px dashed pink;
+  font-size: 24px;
+  font-weight: bold;
+  color: #000;
+  font-style: italic;
+  background-color: aquamarine;
+  padding: 16px;
+  margin: 24px 100px;
+}
+
+.hidden {
+  display: none;
+}
