@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smatyx Todos App</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="root">
+      <h1 class="title"><span class="colorful">Smatyx</span> Todos App</h1>
+      <div class="search-wrapper">
+        <input type="text" name="text" id="text" placeholder="Search Todos" />
+        <div class="magnifier">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <div class="add-btn"><button>Add Todos</button></div>
+      </div>
+      <div class="todos">
+        <span class="todos-content">Kiet's next task</span>
+        <div class="right-icon">
+          <i class="fa-solid fa-trash deleter"></i>
+          <i class="fa-solid fa-pen-to-square editer"></i>
+          <i class="fa-solid fa-check-to-slot checker"></i>
+        </div>
+      </div>
+      <div class="drop-down_list off">
+        Completed Todos 0
+        <i class="fa-solid fa-circle-arrow-right righter-icon"></i>
+      </div>
+      <div class="drop-down_list__wrapper hidden">
+        <div class="todos">
+          <span class="todos-content">Kiet's next task</span>
+          <div class="right-icon">
+            <i class="fa-solid fa-trash deleter"></i>
+            <i class="fa-solid fa-pen-to-square editer"></i>
+            <i class="fa-solid fa-check-to-slot checker"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="todos-adder hidden">
+      <input type="text" name="todos" id="adder" placeholder="Add Todos" />
+      <hr />
+      <div class="btn-wrapper">
+        <button type="button" class="save">Save</button>
+        <button type="button" class="cancel">Cancel</button>
+      </div>
+    </div>
+    <div class="overlay hidden"></div>
+    <script src="script.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/axios/dist/axios.min.js"
+    ></script>
+  </body>
+</html>
