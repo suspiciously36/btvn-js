@@ -4,7 +4,7 @@ let hasMore = true;
 
 let root = document.querySelector(".home-page");
 
-const serverAPI = `http://localhost:3000`;
+const serverAPI = `https://qcgh48-8080.csb.app/`;
 
 const fetchData = async function () {
   const stripHTML = (html) => html.replaceAll(/(<([^>]+)>)/gi, "");
