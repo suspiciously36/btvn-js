@@ -1,0 +1,126 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background: url(./images/olympia.jpg) 1px / cover;
+}
+
+.start-screen,
+.score-container {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+#start-button,
+#restart {
+  font-size: 1.33em;
+  padding: 0.5em 1.8em;
+  border-radius: 0.2em;
+  box-shadow: 0 20px 30px #0000006d;
+}
+
+#restart {
+  margin-top: 0.9em;
+}
+
+#display-container {
+  background-color: #fff;
+  padding: 3.1em 1.8em;
+  width: 80%;
+  max-width: 37.5em;
+  margin: 0 auto;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  border-radius: 0.6em;
+}
+
+.header {
+  margin-bottom: 1.8em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.6em;
+  border-bottom: 0.1em solid #ccc;
+}
+
+.timer-div {
+  background-color: #fff;
+  width: 7.5em;
+  border-radius: 1.8em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7em 1.8em;
+}
+
+.question {
+  margin-bottom: 1.25em;
+  font-weight: 600;
+}
+
+.option-div {
+  font-size: 0.9em;
+  width: 100%;
+  padding: 1em;
+  margin: 0.3em 0;
+  text-align: left;
+  outline: none;
+  background: transparent;
+  border: 1px solid #ccc;
+  border-radius: 0.3em;
+}
+
+.option-div:disabled {
+  color: #000;
+  cursor: not-allowed;
+}
+
+#next-button {
+  font-size: 1em;
+  margin-top: 1.5em;
+  background-color: #000;
+  color: #fff;
+  padding: 0.7em 1.8em;
+  border-radius: 0.3em;
+  float: right;
+  box-shadow: 0 20px 40px #0000006d;
+}
+
+.hide {
+  display: none;
+}
+
+.incorrect {
+  background-color: #fff;
+  color: rgb(215, 104, 25);
+  border-color: rgb(222, 89, 33);
+}
+
+.correct {
+  background-color: #fff;
+  color: rgb(65, 144, 81);
+  border-color: rgb(68, 180, 128);
+}
+
+#user-score {
+  font-size: 1.5em;
+  color: #fff;
+}

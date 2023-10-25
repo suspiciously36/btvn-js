@@ -14,6 +14,8 @@ const fetchData = async function () {
 
   let data = await response.json();
 
+  console.log(data);
+
   isFetching = false;
 
   if (data.length === 0) {
@@ -41,7 +43,7 @@ window.addEventListener("scroll", () => {
   if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
     setTimeout(() => {
       fetchData();
-    }, 1000);
+    }, 100);
   }
 });
 
