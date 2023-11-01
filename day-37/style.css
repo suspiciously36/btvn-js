@@ -1,0 +1,184 @@
+#root {
+}
+
+form.blog .blog-title {
+  margin-bottom: 36px;
+  min-width: 300px;
+  min-height: 75px;
+}
+
+form.blog .blog-time {
+  min-width: 300px;
+}
+
+form.blog textarea {
+  margin-bottom: 36px;
+  min-width: 300px;
+  min-height: 75px;
+}
+
+form.blog .post-btn {
+  display: block;
+  margin-top: 24px;
+  border: 1px solid #ccc;
+  padding: 12px 24px;
+  background-color: green;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+div.blog .blog-author {
+  text-decoration: underline;
+  margin-left: 24px;
+}
+
+div.blog .blog-title {
+  font-size: 24px;
+  margin-left: 16px;
+  font-weight: bold;
+  color: green;
+}
+
+div.blog .blog-content {
+  margin-left: 16px;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  /* font-size: 62.5%; */
+  font-family: "Roboto", sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  box-sizing: border-box;
+  background-color: #fefcff;
+}
+
+.containerDP {
+  margin: 2rem auto;
+  padding: 4rem 2rem;
+  width: 50%;
+  border-radius: 3px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group > label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.datepicker-input {
+  width: 100%;
+  height: 2.5rem;
+  border: 2px solid #ccc;
+  border-radius: 3px;
+  padding: 2px;
+  box-sizing: border-box;
+}
+
+#submit {
+  border: none;
+  border-radius: 3px;
+  background-color: #38acec;
+  padding: 1rem;
+  font-size: 1.6rem;
+  color: #fefcff;
+  font-weight: bold;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.datepicker {
+  display: none;
+  position: absolute;
+}
+
+.datepicker-calendar {
+  display: inline-block;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  border-radius: 3px;
+}
+
+.datepicker-calendar--header,
+.datepicker-calendar--body {
+  padding: 6px;
+}
+
+.datepicker-calendar--header {
+  background-color: #82cafa;
+}
+
+button.month-change {
+  padding: 2px 5px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.datepicker-calendar--header select {
+  background-color: transparent;
+  padding: 2px 5px;
+  border: none;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  font-family: "Roboto", sans-serif;
+}
+
+.datepicker-calendar--header__dates {
+  display: flex;
+  margin: 0 auto;
+}
+
+.datepicker-calendar--body {
+  background-color: #fefcff;
+}
+
+.datepicker-calendar--body__days-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.day-unit {
+  display: inline-block;
+  width: 2.5rem;
+  line-height: 2.5rem;
+  text-align: center;
+}
+
+.datepicker-calendar--body .day-unit {
+  color: #ccc;
+}
+
+.day-unit a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+}
+
+.selected-day {
+  background-color: #82cafa;
+  border-radius: 2.5rem;
+  color: #fefcff;
+  font-weight: bold;
+}
+
+.u-div-show {
+  display: block !important;
+}

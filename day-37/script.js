@@ -1,12 +1,13 @@
 import { client } from "./client.js";
 import { config } from "./config.js";
+import DatePicker from "./datepicker.js";
+
 const { SERVER_API_AUTH } = config;
 
 client.setUrl(SERVER_API_AUTH);
 
 const app = {
   root: document.querySelector("#root"),
-
   isLogin: function () {
     const status = localStorage.getItem("login_token") ? true : false;
     console.log({ status });
@@ -27,10 +28,13 @@ const app = {
       
       <div class="container py-3">
       <form class="blog">
-      <span>enter title</span>
+      <span style="display: block; font-size: 24px; font-style: italic">Enter title:</span>
       <input type="text" placeholder="title..." class="blog-title" />
-      <span>enter content</span>
+      <span style="display: block; font-size: 24px; font-style: italic">Enter content:</span>
       <textarea placeholder="content..." class="blog-content"></textarea>
+      <span style="display: block; font-size: 24px; font-style: italic">Enter time:</span>
+      
+      
       <button type="submit" class="post-btn">POST</button>
         </form>
         </div>
@@ -92,11 +96,10 @@ const app = {
     console.log(blogs);
     return blogs
       .map(
-        (blog) => `<div class="blog" style="border: 1px solid #000">
-    <h2 class="blog-author">${blog.userId.name}</h2>
+        (blog) => `<div class="blog mt-3" style="border: 1px solid #000">
+    <h2 class="blog-author"> ${blog.userId.name}</h2>
     <p class="blog-title">${blog.title}</p>
     <p class="blog-content">${blog.content}</p>
-    <hr/>
     </div>`
       )
       .join("");
@@ -144,13 +147,24 @@ const app = {
     });
   },
 
-  loading: function (status = true) {
+  loadingLogin: function (status = true) {
     const button = this.root.querySelector(".login .btn");
     if (status) {
       button.innerHTML = `<span class="spinner-border spinner-border-sm"></span> Loading...`;
       button.disabled = true;
     } else {
       button.innerHTML = `Đăng nhập`;
+      button.disabled = false;
+    }
+  },
+
+  loadingRegister: function (status = true) {
+    const button = this.root.querySelector(".register .btn");
+    if (status) {
+      button.innerHTML = `<span class="spinner-border spinner-border-sm"></span> Loading...`;
+      button.disabled = true;
+    } else {
+      button.innerHTML = `Đăng ký`;
       button.disabled = false;
     }
   },
@@ -163,14 +177,14 @@ const app = {
 
   login: async function (data) {
     console.log(`login`);
-    this.loading(); //Thêm loading
+    this.loadingLogin(); //Thêm loading
     try {
       //Call API
       const { response, data: dataList } = await client.post(
         "/auth/login",
         data
       );
-      this.loading(false); //Xóa loading
+      this.loadingLogin(false); //Xóa loading
       if (!response.ok) {
         throw new Error("Email hoặc mật khẩu không hợp lệ");
       }
@@ -191,10 +205,11 @@ const app = {
   },
 
   register: async function (data) {
-    this.loading();
+    this.loadingRegister();
     try {
       const response = await client.post("/auth/register", data);
       console.log(response);
+      this.loadingRegister(false);
     } catch (e) {
       console.log(e);
     }
@@ -273,6 +288,95 @@ const app = {
     console.log(response, dataList);
   },
 
+  datePicker: function () {
+    // Date picker js
+
+    let newStartDate;
+    let newEndDate;
+
+    const closeDatepickers = () => {
+      activatedDatepickers.forEach((active) => {
+        if (active.datepickerDiv.className.indexOf("u-div-show") > -1)
+          active.datepickerDiv.classList.remove("u-div-show");
+      });
+    };
+
+    const datepickerInputs = [];
+    const datepickerInputElements =
+      document.getElementsByClassName("datepicker-input");
+
+    for (let i = 0; i < datepickerInputElements.length; i++) {
+      datepickerInputs.push(datepickerInputElements[i]);
+    }
+
+    const activatedDatepickers = [];
+
+    datepickerInputs.forEach((datepickerInput) => {
+      const ID = datepickerInput.getAttribute("id");
+
+      datepickerInput.addEventListener("focus", () => {
+        closeDatepickers();
+        const active = activatedDatepickers.find(
+          (activated) => activated.uid === ID
+        );
+
+        if (!active) {
+          const datepicker = new DatePicker({
+            id: ID,
+            startDate: newStartDate || "1970-01-01",
+            endDate: newEndDate || "2025-11-01",
+            defaultYearAndMonth: "2023-11",
+          });
+          activatedDatepickers.push(datepicker);
+          datepicker.addHTML();
+          // console.log(datepicker);
+
+          datepicker.datepickerDiv.addEventListener("click", (event) => {
+            event.stopPropagation();
+          });
+        } else {
+          active.datepickerDiv.classList.add("u-div-show");
+        }
+
+        // console.log(activatedDatepickers);
+      });
+
+      datepickerInput.addEventListener("click", (event) => {
+        event.stopPropagation();
+      });
+    });
+
+    document.querySelector(".container").addEventListener("click", () => {
+      closeDatepickers();
+    });
+
+    // document
+    //   .querySelector("#from")
+    //   .addEventListener("date-selected", (event) => {
+    //     const active = activatedDatepickers.find(
+    //       (activated) => activated.uid === "to"
+    //     );
+
+    //     if (!active) {
+    //       newStartDate = event.detail;
+    //     } else {
+    //       active.resetStartDate(event.detail);
+    //     }
+    //   });
+
+    // document.querySelector("#to").addEventListener("date-selected", (event) => {
+    //   const active = activatedDatepickers.find(
+    //     (activated) => activated.uid === "from"
+    //   );
+
+    //   if (!active) {
+    //     newEndDate = event.detail;
+    //   } else {
+    //     active.resetEndDate(event.detail);
+    //   }
+    // });
+  },
+
   logout: async function () {
     console.log(`logout`);
     const { response } = await client.post("/auth/logout");
@@ -288,6 +392,7 @@ const app = {
     this.getProfile();
     this.render();
     this.addEvent();
+    this.datePicker();
   },
 };
 
