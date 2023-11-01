@@ -349,32 +349,6 @@ const app = {
     document.querySelector(".container").addEventListener("click", () => {
       closeDatepickers();
     });
-
-    // document
-    //   .querySelector("#from")
-    //   .addEventListener("date-selected", (event) => {
-    //     const active = activatedDatepickers.find(
-    //       (activated) => activated.uid === "to"
-    //     );
-
-    //     if (!active) {
-    //       newStartDate = event.detail;
-    //     } else {
-    //       active.resetStartDate(event.detail);
-    //     }
-    //   });
-
-    // document.querySelector("#to").addEventListener("date-selected", (event) => {
-    //   const active = activatedDatepickers.find(
-    //     (activated) => activated.uid === "from"
-    //   );
-
-    //   if (!active) {
-    //     newEndDate = event.detail;
-    //   } else {
-    //     active.resetEndDate(event.detail);
-    //   }
-    // });
   },
 
   logout: async function () {
