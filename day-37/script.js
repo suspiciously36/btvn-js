@@ -1,6 +1,7 @@
+"use strict";
+
 import { client } from "./client.js";
 import { config } from "./config.js";
-import DatePicker from "./datepicker.js";
 
 const { SERVER_API_AUTH } = config;
 
@@ -10,7 +11,7 @@ const app = {
   root: document.querySelector("#root"),
   isLogin: function () {
     const status = localStorage.getItem("login_token") ? true : false;
-    console.log({ status });
+    // console.log({ status });
     return status;
   },
 
@@ -33,6 +34,7 @@ const app = {
       <span style="display: block; font-size: 24px; font-style: italic">Enter content:</span>
       <textarea placeholder="content..." class="blog-content"></textarea>
       <span style="display: block; font-size: 24px; font-style: italic">Enter time:</span>
+      <input type="date" name="date" id="datepicker" />
       
       
       <button type="submit" class="post-btn">POST</button>
@@ -93,13 +95,12 @@ const app = {
 
   renderBlogs: function () {
     const { blogs } = this;
-    console.log(blogs);
     return blogs
       .map(
         (blog) => `<div class="blog mt-3" style="border: 1px solid #000">
     <h2 class="blog-author"> ${blog.userId.name}</h2>
     <p class="blog-title">${blog.title}</p>
-    <p class="blog-content">${blog.content}</p>
+    <p class="blog-content">${this.converter(blog.content)}</p>
     </div>`
       )
       .join("");
@@ -184,6 +185,7 @@ const app = {
         "/auth/login",
         data
       );
+      // console.log({ response, dataList });
       this.loadingLogin(false); //Xóa loading
       if (!response.ok) {
         throw new Error("Email hoặc mật khẩu không hợp lệ");
@@ -194,10 +196,10 @@ const app = {
         refresh_token: dataList.data.refreshToken,
       };
       localStorage.setItem("login_token", JSON.stringify(tokens));
+
       client.setToken(tokens.access_token);
 
       //Render
-      await this.refreshToken();
       this.getProfile();
     } catch (e) {
       this.showError(e.message);
@@ -216,7 +218,7 @@ const app = {
   },
 
   getProfile: async function () {
-    console.log(`getProfile`);
+    // console.log(`getProfile`);
     try {
       let token = localStorage.getItem("login_token");
       let accessToken;
@@ -231,8 +233,9 @@ const app = {
 
       client.setToken(accessToken);
       const { response, data: dataList } = await client.get("/users/profile");
-      if (!response.ok) {
-        throw new Error("Unauthorize");
+
+      if (response.status === 401) {
+        throw new Error("accessToken outdated");
       }
 
       // const profileEl = this.root.querySelector(".profile");
@@ -244,29 +247,54 @@ const app = {
       this.getBlogs();
     } catch (e) {
       console.log(e);
-      if (e.message) {
-        this.logout();
+      if (e.message === "accessToken is null") {
+        await this.logout();
+      }
+      if (e.message === "accessToken outdated") {
+        await this.refreshToken();
+        await this.getProfile();
+        // await this.logout();
       }
     }
   },
 
   refreshToken: async function () {
-    let token = localStorage.getItem("login_token");
-    if (token) {
-      const refreshToken = JSON.parse(token).refresh_token;
-      const { response, data: dataList } = await client.post(
-        "/auth/refresh-token",
-        {
-          refreshToken,
-        }
-      );
-      const tokens = {
-        access_token: dataList.data.token.accessToken,
-        refresh_token: dataList.data.token.refreshToken,
-      };
-      localStorage.setItem("login_token", JSON.stringify(tokens));
-      client.setToken(tokens.refresh_token);
-      console.log({ response, dataList });
+    try {
+      let token = localStorage.getItem("login_token");
+      let refreshToken;
+
+      console.log(token);
+
+      if (token) {
+        refreshToken = JSON.parse(token).refresh_token;
+      }
+      console.log(refreshToken);
+
+      if (!refreshToken) {
+        throw new Error("refreshToken not null");
+      }
+
+      const { response, data } = await client.post("/auth/refresh-token", {
+        refreshToken,
+      });
+
+      console.log({ refreshToken });
+
+      if (response.status === 401) {
+        throw new Error("Unauthorize");
+      }
+
+      console.log("Lấy token mới");
+
+      const newToken = data.data.token;
+      console.log(newToken);
+      localStorage.setItem("login_token", JSON.stringify(newToken));
+    } catch (e) {
+      console.log(e);
+      if (e.message === "Unauthorize") {
+        localStorage.removeItem("login_token");
+        this.render();
+      }
     }
   },
 
@@ -290,75 +318,54 @@ const app = {
 
   datePicker: function () {
     // Date picker js
+  },
 
-    let newStartDate;
-    let newEndDate;
+  converter: function (content) {
+    // console.log(`converter`);
+    // regex patterns
+    const telPattern = /((\+84|0)[\d]{9})/g;
+    const emailPattern = /(([\w\.-]{3,})@([\w\.-]{1,}\.[a-z]{2,}))/g;
+    const linkPattern =
+      /((?:http|https):\/\/((?:[a-z0-9][a-z0-9-_\.]*\.|)[a-z0-9][a-z0-9-_\.]*\.[a-z]{2,}(?::\d{2,}|)(?:\/*|\/[^\s]+)))/gi;
+    const youtubePattern =
+      /http(?:s?):\/\/(?:www\.)?youtu(?:be\.com\/watch\?v=|\.be\/)([\w\-\_]*)(&(amp;)?‌​[\w\?‌​=]*)?/g;
+    const spacePattern = /\s+/g;
+    const dropLinePattern = /\n+/g;
 
-    const closeDatepickers = () => {
-      activatedDatepickers.forEach((active) => {
-        if (active.datepickerDiv.className.indexOf("u-div-show") > -1)
-          active.datepickerDiv.classList.remove("u-div-show");
-      });
-    };
+    // replacing logik
+    function getId(url) {
+      const regExp =
+        /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+      const match = url.match(regExp);
 
-    const datepickerInputs = [];
-    const datepickerInputElements =
-      document.getElementsByClassName("datepicker-input");
-
-    for (let i = 0; i < datepickerInputElements.length; i++) {
-      datepickerInputs.push(datepickerInputElements[i]);
+      return match && match[2].length === 11 ? match[2] : null;
     }
-
-    const activatedDatepickers = [];
-
-    datepickerInputs.forEach((datepickerInput) => {
-      const ID = datepickerInput.getAttribute("id");
-
-      datepickerInput.addEventListener("focus", () => {
-        closeDatepickers();
-        const active = activatedDatepickers.find(
-          (activated) => activated.uid === ID
-        );
-
-        if (!active) {
-          const datepicker = new DatePicker({
-            id: ID,
-            startDate: newStartDate || "1970-01-01",
-            endDate: newEndDate || "2025-11-01",
-            defaultYearAndMonth: "2023-11",
-          });
-          activatedDatepickers.push(datepicker);
-          datepicker.addHTML();
-          // console.log(datepicker);
-
-          datepicker.datepickerDiv.addEventListener("click", (event) => {
-            event.stopPropagation();
-          });
-        } else {
-          active.datepickerDiv.classList.add("u-div-show");
-        }
-
-        // console.log(activatedDatepickers);
-      });
-
-      datepickerInput.addEventListener("click", (event) => {
-        event.stopPropagation();
-      });
-    });
-
-    document.querySelector(".container").addEventListener("click", () => {
-      closeDatepickers();
-    });
+    const videoId = getId(`${content}`);
+    const iframeMarkup =
+      '<iframe width="560" height="315" src="//www.youtube.com/embed/' +
+      videoId +
+      '" frameborder="0" allowfullscreen></iframe>';
+    if (content) {
+      let replacedContent = content
+        .replace(emailPattern, `<a href="mailto:$1">$1</a>`)
+        .replace(telPattern, `<a href="tel:$1">$1</a>`)
+        .replace(spacePattern, " ")
+        .replace(dropLinePattern, "\n")
+        .replace(youtubePattern, iframeMarkup)
+        .replace(linkPattern, `<a href="$1" target="_blank">$2</a>`);
+      return replacedContent;
+    } else return;
   },
 
   logout: async function () {
-    console.log(`logout`);
+    // console.log(`logout`);
     const { response } = await client.post("/auth/logout");
     localStorage.removeItem("login_token");
     client.setToken(null);
     if (response.ok) {
       this.render();
-    } else console.log(`khong logout duoc`);
+    }
+    // } else console.log(`khong logout duoc`);
   },
 
   start: function () {
@@ -367,6 +374,7 @@ const app = {
     this.render();
     this.addEvent();
     this.datePicker();
+    // this.converter();
   },
 };
 
