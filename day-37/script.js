@@ -263,32 +263,37 @@ const app = {
       let token = localStorage.getItem("login_token");
       let refreshToken;
 
-      console.log(token);
+      // console.log(token);
 
       if (token) {
         refreshToken = JSON.parse(token).refresh_token;
       }
-      console.log(refreshToken);
+      // console.log(refreshToken);
 
       if (!refreshToken) {
         throw new Error("refreshToken not null");
       }
 
-      const { response, data } = await client.post("/auth/refresh-token", {
-        refreshToken,
-      });
+      const { response, data: dataList } = await client.post(
+        "/auth/refresh-token",
+        {
+          refreshToken,
+        }
+      );
 
-      console.log({ refreshToken });
+      // console.log({ refreshToken });
 
       if (response.status === 401) {
         throw new Error("Unauthorize");
       }
 
-      console.log("Lấy token mới");
+      console.log("Getting new token...");
 
-      const newToken = data.data.token;
-      console.log(newToken);
-      localStorage.setItem("login_token", JSON.stringify(newToken));
+      const tokens = {
+        access_token: dataList.data.token.accessToken,
+        refresh_token: dataList.data.token.refreshToken,
+      };
+      localStorage.setItem("login_token", JSON.stringify(tokens));
     } catch (e) {
       console.log(e);
       if (e.message === "Unauthorize") {
