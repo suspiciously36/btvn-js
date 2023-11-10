@@ -1,0 +1,152 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  background-color: pink;
+  font-family: sans-serif;
+}
+
+/* MAIN CSS */
+
+.container {
+  margin-bottom: 12px;
+}
+
+.container h1 {
+  color: #fff;
+  text-align: center;
+  margin-top: 24px;
+}
+
+.container .input-heart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-heart input {
+  border: 2px dashed pink;
+}
+
+hr {
+  display: block;
+  margin: 12px auto;
+  width: 80%;
+}
+
+.todo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+}
+
+#cloud {
+  text-align: center;
+  background: rgba(255, 255, 255);
+  min-width: 666px;
+  max-width: 777px;
+  min-height: 120px;
+  border-radius: 150px;
+  box-shadow: 10px 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 24px;
+}
+
+#cloud:after {
+  content: "";
+  background: rgba(255, 255, 255);
+  position: fixed;
+  z-index: -1;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  top: -50px;
+  left: 50px;
+}
+
+#cloud:before {
+  content: "";
+  background: rgba(255, 255, 255);
+  position: fixed;
+  z-index: -1;
+  width: 170px;
+  height: 150px;
+  border-radius: 50%;
+  top: -90px;
+  right: 40px;
+}
+
+.todo-innerContent {
+  font-size: 18px;
+}
+
+.todo-innerContentEdit input[type="text"] {
+  display: flex;
+  margin-bottom: 4px;
+  width: 300px;
+  padding: 6px;
+  border: 1px solid #666;
+  border-radius: 5px;
+}
+
+.todo-innerContentEdit input[type="checkbox"] {
+  margin-left: 12px;
+}
+
+.todo-innerButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.todo-innerButtons button {
+  color: #666;
+  font-weight: bold;
+  outline: none;
+  border: 1px solid #ccc;
+  padding: 8px;
+  background-color: aquamarine;
+  border-radius: 6px;
+  margin-top: 8px;
+  cursor: pointer;
+}
+
+.completed-todo .todo-innerContent {
+  text-decoration: line-through;
+}
+
+.completed-edit-todo input[type="text"] {
+  text-decoration: line-through !important;
+}
+
+/* HEART BUTTON */
+
+.customHeart:hover {
+  fill: #c9c7c7 !important;
+  transition: fill 0.1s;
+}
+.customHeart:active {
+  fill: #a5a5a5 !important;
+  transition: fill 0.1s;
+}
+.active.customHeart:hover {
+  fill: rgb(205, 3, 3) !important;
+  transition: fill 0.1s;
+}
+.active.customHeart:active {
+  fill: rgb(155, 6, 6) !important;
+  transition: fill 0.1s;
+}
