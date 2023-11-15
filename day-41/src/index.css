@@ -132,6 +132,26 @@ hr {
   text-decoration: line-through !important;
 }
 
+.big-container {
+  position: relative;
+}
+
+.todo-search {
+  position: absolute;
+  top: 45%;
+  right: 30%;
+  border: 1px dashed pink;
+  padding: 8px;
+  border-radius: 6px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.todo-search:hover {
+  opacity: 0.9;
+  scale: 1.05;
+}
+
 /* HEART BUTTON */
 
 .customHeart:hover {
