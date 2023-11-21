@@ -24,7 +24,8 @@ html {
   margin-bottom: 15px;
 }
 
-.sign-in {
+.sign-in,
+.sign-out {
   font-size: large;
   border: 1px solid #ccc;
   padding: 12px 20px;
@@ -37,6 +38,16 @@ html {
   cursor: pointer;
 }
 
-.sign-in:hover {
+.sign-in:hover,
+.sign-out:hover {
   opacity: 0.8;
+}
+
+.container .avt {
+  max-width: 100px;
+  border-radius: 50%;
+}
+
+.text-center {
+  text-align: center;
 }
