@@ -9,6 +9,7 @@ html {
 }
 
 .container {
+  padding: 24px 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,7 +26,8 @@ html {
 }
 
 .sign-in,
-.sign-out {
+.sign-out,
+.send-msg {
   font-size: large;
   border: 1px solid #ccc;
   padding: 12px 20px;
@@ -55,10 +57,14 @@ html {
 
 .container .email {
   padding: 4px;
-  width: 200px;
+  width: 300px;
 }
 
 .container .msg {
   padding: 4px;
-  width: 200px;
+  width: 300px;
+}
+
+.send-msg {
+  background-color: green;
 }
