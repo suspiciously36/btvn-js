@@ -10,7 +10,7 @@ const App = () => {
 
   return (
     <main className="main">
-      {!error && !isLoading && !isAuthenticated && (
+      {!isAuthenticated && (
         <>
           <div className="container">
             <h1>Cảm ơn bạn đã sử dụng dịch vụ của F8</h1>
