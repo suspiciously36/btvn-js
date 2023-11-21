@@ -6,7 +6,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import "./assets/css/style.css";
 
 const App = () => {
-  const { isLoading, error, isAuthenticated } = useAuth0();
+  const { isLoading, error } = useAuth0();
 
   return (
     <main className="main">
@@ -17,6 +17,7 @@ const App = () => {
           tại đây!
         </p>
         <LoginButton />
+        <LogoutButton />
       </div>
 
       {error && <p>Authentication Error</p>}
