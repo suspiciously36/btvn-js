@@ -17,7 +17,7 @@ html {
   border: 1px solid #ccc;
   border-radius: 3px;
   max-width: 666px;
-  height: 188px;
+  min-height: 188px;
 }
 
 .container h1 {
@@ -44,10 +44,21 @@ html {
 }
 
 .container .avt {
-  max-width: 100px;
+  max-width: 69px;
   border-radius: 50%;
 }
 
 .text-center {
   text-align: center;
+  margin-top: 12px;
+}
+
+.container .email {
+  padding: 4px;
+  width: 200px;
+}
+
+.container .msg {
+  padding: 4px;
+  width: 200px;
 }

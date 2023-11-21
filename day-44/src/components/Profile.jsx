@@ -13,9 +13,13 @@ const Profile = () => {
           )}
           <h1 className="text-center">Xin chào bạn {user?.name}</h1>
           <h3 className="text-center">Email</h3>
-          <input type="email" value={`examle@gmail.com`} />
+          <input className="email" type="email" value={`examle@gmail.com`} />
           <h3 className="text-center">Message</h3>
-          <input type="text" value={`Chúc mừng sinh nhật Quân && Dương nhé!`} />
+          <input
+            className="msg"
+            type="text"
+            value={`Chúc mừng sinh nhật Quân && Dương nhé!`}
+          />
           <button>Send Message</button>
           <LogoutButton />
         </div>
