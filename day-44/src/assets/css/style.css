@@ -1,0 +1,42 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 32px auto;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  max-width: 666px;
+  height: 188px;
+}
+
+.container h1 {
+  margin-bottom: 15px;
+}
+
+.sign-in {
+  font-size: large;
+  border: 1px solid #ccc;
+  padding: 12px 20px;
+  margin-top: 16px;
+  border-radius: 9px;
+  font-weight: bold;
+  background-color: orangered;
+  color: #fff;
+  box-shadow: 0 0 12px #ccc;
+  cursor: pointer;
+}
+
+.sign-in:hover {
+  opacity: 0.8;
+}

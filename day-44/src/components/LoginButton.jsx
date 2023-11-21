@@ -6,11 +6,12 @@ const LoginButton = () => {
   return (
     !isAuthenticated && (
       <button
+        className="sign-in"
         onClick={() => {
           loginWithRedirect();
         }}
       >
-        Sign In
+        ĐĂNG NHẬP || ĐĂNG KÝ
       </button>
     )
   );
