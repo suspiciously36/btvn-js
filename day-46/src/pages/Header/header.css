@@ -1,0 +1,33 @@
+.header {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  background-color: #252b48;
+  z-index: 9999;
+  /* margin-bottom: 105px; */
+}
+
+.icon img {
+  width: 50px;
+  margin-left: 25px;
+}
+
+.cart {
+  position: relative;
+}
+
+.cart .fa-cart-shopping {
+  color: #fff;
+  font-size: 30px;
+  margin-right: 25px;
+}
+
+#number-of-products {
+  color: #fff;
+  position: absolute;
+  right: 15px;
+  font-size: 20px;
+}
