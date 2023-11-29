@@ -1,11 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getPosts } from "../middlewares/postMiddleware";
-import { getTotalPages } from "../middlewares/postMiddleware";
 
 const initialState = {
   count: 0,
   postList: [],
-  totalPage: 1250,
   status: "idle",
 };
 export const counterSlice = createSlice({

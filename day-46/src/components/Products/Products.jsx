@@ -6,7 +6,7 @@ import { numberWithCommas } from "../../utilities/commaSeperator";
 
 import {
   getPosts,
-  getTotalPages,
+  getProductDetail,
 } from "../../redux/middlewares/postMiddleware";
 import "./products.css";
 
@@ -17,8 +17,7 @@ const Products = () => {
   const status = useSelector((state) => state.counter.status);
 
   useEffect(() => {
-    dispatch(getPosts());
-    dispatch(getTotalPages());
+    dispatch(getPosts(1));
   }, []);
 
   if (status === "error") {
