@@ -62,6 +62,7 @@ export default function LanguageSwitcher() {
   const { t } = useTranslation();
 
   useEffect(() => {
+    require("bootstrap/dist/js/bootstrap.js");
     document.title = t("F8 Portfolio");
   }, [currentLanguage, t]);
 
