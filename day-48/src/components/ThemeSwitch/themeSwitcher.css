@@ -1,0 +1,12 @@
+.theme {
+  border: none;
+  outline: none;
+}
+
+[data-theme="light"] .theme {
+  background-color: #fff;
+}
+
+[data-theme="dark"] .theme {
+  background-color: #000;
+}
