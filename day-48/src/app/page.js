@@ -6,7 +6,6 @@ import Image from "next/image";
 import anotherf8 from "@/assets/images/another-f8.jpg";
 import { useTranslation } from "next-i18next";
 import { regexPhoneNumber, regexURL, regexMail } from "@/utilities/regex";
-import Link from "next/link";
 
 const Body = () => {
   const { t } = useTranslation();
