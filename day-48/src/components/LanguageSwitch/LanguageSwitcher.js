@@ -7,7 +7,7 @@ import HttpApi from "i18next-http-backend";
 import LanguageDetector from "i18next-browser-languagedetector";
 import { initReactI18next } from "react-i18next";
 
-import "bootstrap";
+import "bootstrap/dist/js/bootstrap.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "flag-icon-css/css/flag-icons.min.css";
 
@@ -65,9 +65,9 @@ export default function LanguageSwitcher() {
     document.title = t("F8 Portfolio");
   }, [currentLanguage, t]);
 
-  useEffect(() => {
-    import("bootstrap");
-  }, []);
+  // useEffect(() => {
+  //   import("bootstrap");
+  // }, []);
 
   return (
     <div className="container">
