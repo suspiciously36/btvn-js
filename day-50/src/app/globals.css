@@ -1,0 +1,132 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+body {
+  color: #000;
+  background-color: #fff;
+}
+
+[data-theme="dark"] body {
+  background-color: #000;
+  color: #fff;
+}
+
+[data-theme="dark"] a {
+  color: #fff;
+}
+
+[data-theme="light"] .main-body,
+[data-theme="light"] .lower-container {
+  background-color: #fff;
+  box-shadow: 0 0 3px #000;
+}
+
+[data-theme="light"] .avatar {
+  box-shadow: 0 0 12px #000;
+}
+
+.main-body {
+  margin: 70px auto 0;
+  background-color: #1b1b1b;
+  width: calc(100% - 240px);
+  height: auto;
+  border-radius: 9px;
+  box-shadow: 0 0 8px #ccc;
+}
+
+h1.title {
+  text-align: center;
+  padding-top: 12px;
+}
+
+.avatar {
+  box-shadow: 0 0 33px #fff;
+  margin: 24px;
+  border-radius: 5px;
+}
+
+.left-side-content {
+  width: 25%;
+  padding: 0 16px;
+}
+
+.left-side-content h2 {
+  font-weight: normal;
+  margin-top: 12px;
+}
+
+.left-side-content p {
+  text-wrap: wrap;
+}
+
+.avatar-container h4 {
+  font-weight: normal;
+  text-align: center;
+  margin-top: -12px;
+}
+
+.avatar-container {
+  width: calc(260px + 48px);
+}
+
+.content-container {
+  display: flex;
+  gap: 24px;
+}
+
+.right-side-content {
+  margin-top: 24px;
+  width: 75%;
+  padding: 0 16px;
+}
+
+.right-side-content h2 {
+  text-align: center;
+}
+
+.upper-container p a,
+.footer,
+.lower-container a {
+  color: orangered;
+}
+
+.lower-container a {
+  margin-right: 12px;
+}
+
+.upper-container p a:hover,
+.lower-container a:hover {
+  opacity: 0.8;
+}
+
+.lower-container {
+  padding-left: 18px;
+  padding-top: 36px;
+  padding-bottom: 18px;
+  margin-top: 48px;
+  width: 100%;
+  background-color: #222;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 0 3px #fff;
+}
+
+.footer {
+  margin-left: 99px;
+}
+
+.hobbies-container {
+  margin-top: 24px;
+}

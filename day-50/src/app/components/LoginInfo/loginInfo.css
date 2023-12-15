@@ -1,0 +1,62 @@
+.container {
+  margin-top: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-container {
+  display: flex;
+}
+
+.user-image-3 {
+  border-radius: 50%;
+}
+
+.login-info-github-btn,
+.login-info-google-btn {
+  cursor: pointer;
+  border: none;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 169px;
+  height: 45px;
+}
+
+.login-info-github-btn {
+  box-shadow: 0 0 5px blue;
+  background-color: blue;
+  border-top-left-radius: 9px;
+  border-bottom-left-radius: 9px;
+}
+
+.login-info-github-btn:hover,
+.login-info-google-btn:hover {
+  opacity: 0.85;
+}
+
+.login-info-google-btn {
+  box-shadow: 0 0 5px yellow;
+
+  color: #000;
+  background-color: yellow;
+  border-top-right-radius: 9px;
+  border-bottom-right-radius: 9px;
+}
+
+.logout-btn {
+  cursor: pointer;
+  border: none;
+  border-radius: 9px;
+  background-color: rgb(214, 11, 45);
+  color: #fff;
+  font-size: 16px;
+  height: 45px;
+  width: 150px;
+}
+
+.logout-btn:hover {
+  opacity: 0.85;
+}
