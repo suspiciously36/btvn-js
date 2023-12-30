@@ -3,7 +3,7 @@ import React, { memo, useEffect, useRef, useState } from "react";
 import { Handle } from "reactflow";
 import "./textUpdaterNode.css";
 
-export default memo(({ data, isConnectable }) => {
+const TextUpdaterNode = memo(({ data, isConnectable }) => {
   const inputRef = useRef();
   const [inputValue, setInputValue] = useState("");
   const handleStyle = {
@@ -80,3 +80,5 @@ export default memo(({ data, isConnectable }) => {
     </div>
   );
 });
+
+export default TextUpdaterNode;

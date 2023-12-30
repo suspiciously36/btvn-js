@@ -168,8 +168,12 @@ function AddNodeOnEdgeDrop() {
   );
 }
 
-export default () => (
-  <ReactFlowProvider>
-    <AddNodeOnEdgeDrop />
-  </ReactFlowProvider>
-);
+function AddNode() {
+  return (
+    <ReactFlowProvider>
+      <AddNodeOnEdgeDrop />
+    </ReactFlowProvider>
+  );
+}
+
+export default AddNode;
