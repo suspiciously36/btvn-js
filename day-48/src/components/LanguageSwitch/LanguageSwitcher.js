@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
@@ -65,9 +66,9 @@ export default function LanguageSwitcher() {
     document.title = t("F8 Portfolio");
   }, [currentLanguage, t]);
 
-  // useEffect(() => {
-  //   import("bootstrap");
-  // }, []);
+  useEffect(() => {
+    import("bootstrap");
+  }, []);
 
   return (
     <div className="container">

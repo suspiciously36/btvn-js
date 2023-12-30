@@ -13,6 +13,8 @@ export default function ClientPage() {
     },
   });
 
+  console.log({ session });
+
   return (
     <>
       <Navbar />

@@ -11,8 +11,5 @@
   "devDependencies": {
     "navigo": "^8.11.1",
     "vite": "^4.4.5"
-  },
-  "dependencies": {
-    "bootstrap": "^5.3.2"
   }
 }
