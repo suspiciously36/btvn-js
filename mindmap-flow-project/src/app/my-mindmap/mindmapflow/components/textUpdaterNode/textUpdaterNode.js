@@ -81,4 +81,6 @@ const TextUpdaterNode = memo(({ data, isConnectable }) => {
   );
 });
 
+TextUpdaterNode.displayName = "TextUpdaterNode";
+
 export default TextUpdaterNode;
